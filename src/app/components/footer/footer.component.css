@@ -1,0 +1,28 @@
+.footer {
+    background: #333333;;
+    color: white;
+    height: 150px;
+    display: grid;
+    place-items: center;
+    font-size: 15px;    
+}
+
+.P{
+    margin-top: 10px;
+}
+
+ul {
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    margin:0px 20px;
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

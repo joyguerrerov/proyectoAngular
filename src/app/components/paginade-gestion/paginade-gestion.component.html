@@ -1,0 +1,40 @@
+<h1>Creación/edición de productos</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label">Nombre del producto:</label>
+                    <input type="text" class="form-control" formControlName="nombredelProducto" placeholder="Por ej: Lapiceros de colores ">
+                    <p class="error" *ngIf="!formulario.get('nombre')!.valid">
+                        El campo nombre tiene errores
+                    </p>
+                
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Precio:</label>
+                    <input type="text" class="form-control" formControlName="precio" placeholder="Por ej: 8.50">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Descripción:</label>
+                    <input type="text" class="form-control" formControlName="descripcion" placeholder="Por ej: Lo más vendidoeste mes">
+                  
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ruta de la Imagen:</label>
+                    <input type="text" class="form-control" formControlName="rutadelaimagen" placeholder="Por ej: http:/blabla.com/img.jpg">
+                  
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Opiniones:</label>
+                    <input type="text" class="form-control" formControlName="opiniones" placeholder="Por ej: 4.5">
+                  
+                </div>
+
+                <input type="submit" [disabled]="!formulario.valid" value="Guardar" class="btn btn-success" placeholder="Por ej: 4">
+
+            </form>
+        </div>
+    </div>
+</div>

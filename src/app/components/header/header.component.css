@@ -1,0 +1,25 @@
+.menu{
+    height: 80px;
+    gap: 30px;
+    opacity: 0px;
+    border: 1px solid;
+    background-color:  #F89F21;
+    h2{
+        font-size: 20px;
+    }
+}
+
+h1{
+    height: 90px;
+}
+
+button{
+    background-color: #F89F21;
+    border: none;
+}
+
+button:hover{
+    background-color: #ecba73;
+    border-radius: 10%;
+    
+}
