@@ -2,39 +2,65 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
+        <div class="col-6 col-md-3 offset-md-3">
             <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
                     <label class="form-label">Nombre del producto:</label>
-                    <input type="text" class="form-control" formControlName="nombredelProducto" placeholder="Por ej: Lapiceros de colores ">
-                    <p class="error" *ngIf="!formulario.get('nombre')!.valid">
-                        El campo nombre tiene errores
+                    <input type="text" class="form-control" formControlName="nombredelProducto" placeholder="Por ej: Lapiceros de colores " [(ngModel)]="nombre">
+                    <p class="error" *ngIf="checkError('nombredelProducto', 'required')">
+                        El campo nombre es requerido
                     </p>
                 
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Precio:</label>
-                    <input type="text" class="form-control" formControlName="precio" placeholder="Por ej: 8.50">
+                    <input type="text" class="form-control" formControlName="precio" placeholder="Por ej: 8.50" [(ngModel)]="price">
+                    <p class="error" *ngIf="checkError('precio', 'required')">
+                        El campo precio es requerido
+                    </p>
+                    <p class="error" *ngIf="formulario.get('precio')?.hasError('pattern')">
+                        El formato del precio es incorrecto
+                    </p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Descripción:</label>
-                    <input type="text" class="form-control" formControlName="descripcion" placeholder="Por ej: Lo más vendidoeste mes">
+                    <input type="text" class="form-control" formControlName="descripcion" placeholder="Por ej: Lo más vendidoeste mes" [(ngModel)]="descripcion">
+                    <p class="error" *ngIf="checkError('descripcion', 'required')">
+                        El campo descripcion es requerido
+                    </p>
                   
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ruta de la Imagen:</label>
-                    <input type="text" class="form-control" formControlName="rutadelaimagen" placeholder="Por ej: http:/blabla.com/img.jpg">
+                    <input type="text" class="form-control" formControlName="rutadelaimagen" placeholder="Por ej: http:/blabla.com/img.jpg" [(ngModel)]="image">
+                    <p class="error" *ngIf="checkError('rutadelaimagen', 'required')">
+                        El campo ruta de la imagen es requerido
+                    </p>
+                    <p class="error" *ngIf="formulario.get('rutadelaimagen')?.hasError('pattern')">
+                        El formato de la Ruta es incorrecto
+                    </p>
                   
-                </div>
+                </div >
                 <div class="mb-3">
-                    <label class="form-label">Opiniones:</label>
-                    <input type="text" class="form-control" formControlName="opiniones" placeholder="Por ej: 4.5">
+                    <label class="form-label">Puntuación:</label>
+                    <input type="text" class="form-control" formControlName="puntuacion" placeholder="Por ej: 4.5" [(ngModel)]="puntuacion"><p class="error" *ngIf="checkError('puntuacion', 'required')">
+                        El campo puntuación es requerido
+                    </p>
+                    <p class="error" *ngIf="formulario.get('puntuacion')?.hasError('pattern')">
+                        El formato de la puntuación es incorrecto
+                    </p>
                   
                 </div>
 
                 <input type="submit" [disabled]="!formulario.valid" value="Guardar" class="btn btn-success" placeholder="Por ej: 4">
 
             </form>
-        </div>
+        </div >
+        <div class="col-6 col-md-3 offset-md-3">
+            <img src={{image}}>
+            <p class="p-t">{{descripcion}}</p>
+            <p class="p-t_n">{{price}}</p>
+            <p class="p-t_p">{{nombre}}</p>
+            <p class="p-t-pu">{{puntuacion}}</p>
     </div>
 </div>

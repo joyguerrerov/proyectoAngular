@@ -10,6 +10,10 @@ import { PaginadeProductosComponent } from './components/paginade-productos/pagi
 import { PaginadeGestionComponent } from './components/paginade-gestion/paginade-gestion.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -19,15 +23,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaginadeInicioComponent,
     PaginadeProductosComponent,
     PaginadeGestionComponent,
-    ProductoComponent
+    ProductoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

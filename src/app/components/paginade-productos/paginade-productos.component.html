@@ -1,1 +1,9 @@
-<p>paginade-productos works!</p>
+<!-- <form>
+    <fieldset>
+        <input type="text" placeholder="BUSCADOR" [(ngModel)]="Filtro" />
+    </fieldset>
+</form> -->
+<input type="text" placeholder="BUSCADOR" [(ngModel)]="Filtro" (ngModelChange)="FiltrarDatos($event)"/>
+
+<app-producto *ngFor="let elem of productos" [image]="elem.image" [price]="elem.price" [name]="elem.name" [description]="elem.description" [stars]="elem.stars" [id]="elem.id"/>
+

@@ -8,6 +8,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PaginadeGestionComponent {
 
+  nombre: string = ""; 
+  image: string = "";
+  descripcion: string = "";
+  price: number = 0;
+  puntuacion: string= ""
+
   formulario: FormGroup = new FormGroup({
     
     nombredelProducto: new FormControl(null, [
@@ -17,6 +23,7 @@ export class PaginadeGestionComponent {
 
     precio: new FormControl(null, [
       Validators.required,
+      Validators.pattern('^[0-9]*$')
     ]),
 
     descripcion: new FormControl(null, [
@@ -27,18 +34,20 @@ export class PaginadeGestionComponent {
 
     rutadelaimagen: new FormControl(null, [
       Validators.required,
-      Validators.minLength(10)
+      Validators.minLength(10),
+      Validators.pattern('^http.*')
 
     ]),
 
-    opiniones: new FormControl(null, [
+    puntuacion: new FormControl(null, [
       Validators.required,
+      Validators.pattern(/^-?\d*\.?\d+$/)
     ]),
     
   });
 
   onSubmit() {
-  console.log(this.formulario.value);
+  console.log(this.formulario);
   
 }
 

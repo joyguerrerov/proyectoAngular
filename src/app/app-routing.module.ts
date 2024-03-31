@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaginadeInicioComponent } from './components/paginade-inicio/paginade-inicio.component';
 import { PaginadeGestionComponent } from './components/paginade-gestion/paginade-gestion.component';
 import { PaginadeProductosComponent } from './components/paginade-productos/paginade-productos.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: PaginadeInicioComponent },
+  { path: '', component: LoginComponent },
+  { path: 'inicio', component: PaginadeInicioComponent },
   { path: 'producto', component: PaginadeProductosComponent},
   { path: 'gestion', component: PaginadeGestionComponent },
   { path: '**', redirectTo: ''}
