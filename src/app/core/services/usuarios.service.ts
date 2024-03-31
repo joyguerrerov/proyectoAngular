@@ -28,11 +28,11 @@ export class UsuariosService {
 
   registro(nuevoUsuario: Usuario) {
     return firstValueFrom(
-    this.httpClient.post<RegistroResponse>(`${this.baseUrl}/registro`, nuevoUsuario )
+      this.httpClient.post<RegistroResponse>(`${this.baseUrl}/registro`, nuevoUsuario)
     )
   }
 
-  login(body: LoginBody) { // LoginBody lo que envio, el LoginResponse lo que me devuelve
+  login(body: LoginBody) {
     return firstValueFrom(
       this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, body)
     )
@@ -41,6 +41,6 @@ export class UsuariosService {
   isLogged() {
     return localStorage.getItem('token_crm') ? true : false;
   }
-  
+
 }
 
